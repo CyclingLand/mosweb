@@ -30,15 +30,79 @@
 			$(".dropdown-button").dropdown();
 			});
 		</script>
-<!-- Start SnowScript -->
+	<!-- Smooth scroll -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cyclingland.github.io/dist/js/smooth-scroll.js"></script>
+	<script src="https://cyclingland.github.io/js/smooth_link.js"></script>
+	<script>
+	$(document).ready(function () {
+    //Source: https://css-tricks.com/snippets/jquery/smooth-scrolling/
+    // Select all links with hashes
+    $('a[href*="#"]')
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+            // On-page links
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                &&
+                location.hostname == this.hostname
+            ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function() {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        }
+                    });
+                }
+            }
+        });
+});</script>
+	<!-- Navbar -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.js"> </script>
+		<script>
+		$( document ).ready(function(){
+			$(".button-collapse").sideNav();
+			})
+		</script>
+		<script>
+		$(document).ready(function(){
+			$('.parallax').parallax();
+			});
+		</script>
+
+<!-- Start SnowScript (zet dit aan als het kerst is)
 	<script type="text/javascript" src="js/snowstorm.js"></script>
 <script type="text/javascript">
-snowStorm.snowColor = '#FFFFFF'; // blue-ish snow!?
+snowStorm.snowColor = '#FFFFFF'; // color of the snow
 snowStorm.flakesMaxActive = 96;  // show more snow on screen at once
 snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
 </script>
 
-<!-- End SnowScript-->
+<!-- End SnowScript 
+<!-- Start Modals script -->
+<script>
+	  $(document).ready(function(){
+    $('.modal').modal();
+  });
+    
+</script>
 </head>
 <header>
 <!-- Dropdowns -->
@@ -97,6 +161,7 @@ snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
       <div class="parallax"><img src="resources/images/drachten-centrum.jpg"></div>
 		<img src="resources/images/Logo.jpg" style="margin-top: 100px;max-width: 200px;" class="responsive-img z-depth-5">
     </div>
+	<div id="start" style="text-align: center;"><a href="#start"><i class="material-icons large icon-orange">keyboard_arrow_up</i></a></div>
   <div id="tekst" class="container">
     <h1 style="color: chocolate">Nieuws</h1>
 <div class="divider"></div>
