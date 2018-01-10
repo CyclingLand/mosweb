@@ -132,3 +132,6 @@
 	.article {
 			margin: 20px;
 	}
+	@media screen and (min-width: 521px) {
+ 	.mobile-div { display: none; } /*Dit zorgt ervoor dat deze div alleen op mobiel te zien is*/
+	}
